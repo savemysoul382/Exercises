@@ -2,12 +2,22 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Alive</title>
-    <script src="exercise1.js">
+    <title>Image Guess</title>
+    <style> body { margin: 20px; }</style>
+    <script>
+        window.onload = init;
+        function init() {
+            var image = document.getElementById("zero");
+            image.onclick = showAnswer;
+        }
 
+        function showAnswer() {
+            var image = document.getElementById("zero");
+            image.src = "res/zero.jpg"
+        }
     </script>
 </head>
     <body>
-
+        <img id="zero" src="res/zeroblur.jpg" alt="zero blur">
     </body>
 </html>
