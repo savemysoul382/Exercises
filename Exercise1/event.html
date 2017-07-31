@@ -14,22 +14,28 @@
             var images = document.getElementsByTagName("img");
             for (var i = 0; i < images.length; i++) {
                 images[i].onmouseover = showAnswer;
+                images[i].onmouseout = hideAnswer;
             }
-        }
 
-        function showAnswer(eventObj) {
-            var image = eventObj.target;
-            var name = image.id;
-            name = "res/" + name + ".jpg";
-            image.src = name;
 
-            setTimeout(reblur, 2000, image);
-        }
+            function showAnswer(eventObj) {
+                var image = eventObj.target;
+                var name = image.id;
+                name = "res/" + name + ".jpg";
+                image.src = name;
+            }
 
-        function reblur(image) {
-            var name = image.id;
-            name = "res/" + name + "blur.jpg";
-            image.src = name;
+
+            function hideAnswer(eventObj) {
+               function hide() {
+                   var image = eventObj.target;
+                   var name = image.id;
+                   name = "res/" + name + "blur.jpg";
+                   image.src = name;
+               }
+               setTimeout(hide, 800);
+
+            }
         }
 
     </script>
