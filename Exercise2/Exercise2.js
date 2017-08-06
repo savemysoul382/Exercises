@@ -1,7 +1,7 @@
-var passengers = [  { name: "Jane Doloop", paid: true},
-                    { name: "Dr. Evel", paid: true,},
-                    { name: "Sue Property", paid: false},
-                    { name: "John Funcall", paid: true}
+var passengers = [  { name: "Jane Doloop", paid: true, ticket: "coach"},
+                    { name: "Dr. Evel", paid: true, ticket: "firstclass"},
+                    { name: "Sue Property", paid: false, ticket: "firstclass"},
+                    { name: "John Funcall", paid: true, ticket: "coach"}
 ];
 
 function checkPaid(passengers) {
@@ -73,3 +73,15 @@ function printPassenger(passenger) {
 
 processPassengers(passengers, printPassenger);
 
+//Offer drinks according to class
+function createDrinkOrder(passenger) {
+    if (passenger.ticket === "firstclass") {
+        alert("Would you like cocktail ot wine?");
+    } else {
+        alert("Your choice is cola or water");
+    }
+}
+
+function serveCostumer(passenger) {
+    createDrinkOrder(passenger);
+}
