@@ -75,13 +75,34 @@ processPassengers(passengers, printPassenger);
 
 //Offer drinks according to class
 function createDrinkOrder(passenger) {
+    var orderFunction;
+
     if (passenger.ticket === "firstclass") {
-        alert("Would you like cocktail ot wine?");
+        orderFunction = function () {
+            alert("Would you like cocktail ot wine?");
+        };
     } else {
-        alert("Your choice is cola or water");
+        orderFunction = function () {
+            alert("Your choice is cola or water");
+        };
     }
+    return orderFunction;
 }
 
 function serveCostumer(passenger) {
-    createDrinkOrder(passenger);
+    var getDrinkOrderFunction = createDrinkOrder(passenger);
+    getDrinkOrderFunction();
+    //offer a dinner
+    getDrinkOrderFunction();
+    getDrinkOrderFunction();
+    //offer a movie
+    getDrinkOrderFunction();
 }
+
+function servePassengers(passengers) {
+    for (var i = 0; i < passengers.length; i++) {
+        serveCostumer(passengers[i]);
+    }
+}
+
+servePassengers(passengers);
